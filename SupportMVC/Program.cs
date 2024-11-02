@@ -1,7 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using SupportMVC.InMemory;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<UserContextInMemory>(options =>
+{
+    options.UseInMemoryDatabase("Users");
+});
+
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", config =>
+    {
+        config.LoginPath = "/SignUp";
+        config.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+        config.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    });
+
 
 var app = builder.Build();
 
@@ -16,6 +32,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
