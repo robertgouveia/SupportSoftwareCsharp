@@ -4,19 +4,29 @@
     ViewData["Title"] = "Sign Up";
 }
 
-<form method="post">
-    <div class="mb-3">
-        <label for="user" class="form-label">Username</label>
-        <input id="user" name="user" class="form-control" aria-describedby="Username"/>
+<form method="post" class="col-lg-6 mx-auto mt-5">
+    <h2 class="p-3 text-center fw-bold">Create an Account</h2>
+    <div class="mb-3 input-group">
+        <span class="input-group-text">🌐</span>
+        <div class="form-floating">
+            <input id="user" name="user" class="form-control" aria-describedby="Username"/>
+            <label for="user">Enter a username</label>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="pass" class="form-label">Password</label>
-        <input type="password" id="pass" name="pass" class="form-control" aria-describedby="password"/>
+    <div class="mb-3 input-group">
+        <span class="input-group-text">🔐</span>
+        <div class="form-floating">
+            <input type="password" id="pass" name="pass" class="form-control" aria-describedby="password"/>
+            <label for="pass">Password</label>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="pass" class="form-label">Confirm Password</label>
-        <input type="password" id="pass_confirm" name="passConfirm" class="form-control" aria-describedby="password"/>
+    <div class="mb-3 input-group">
+        <span class="input-group-text">🔐</span>
+        <div class="form-floating">
+            <input type="password" id="passConfirm" name="passConfirm" class="form-control" aria-describedby="password"/>
+            <label for="passConfirm">Confirm Password</label>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary mb-3">Sign Up</button>
-    <p class="text-secondary">Already got an account? <a class="link-underline text-primary" asp-controller="Login" asp-action="Index">Login</a></p>
+    <button type="submit" class="btn btn-primary mb-3 w-100 py-2">Create Account</button>
+    <p class="text-center text-secondary">Have an account? <a asp-controller="Login" asp-action="Index">Login</a></p>
 </form>
