@@ -1,0 +1,18 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="user" class="form-label">Username</label>
+        <input id="user" name="user" class="form-control" aria-describedby="Username"/>
+    </div>
+    <div class="mb-3">
+        <label for="pass" class="form-label">Password</label>
+        <input type="password" id="pass" name="pass" class="form-control" aria-describedby="password"/>
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Login</button>
+    <p>Don't have an account? <a asp-controller="SignUp" asp-action="Index">Sign Up</a></p>
+</form>

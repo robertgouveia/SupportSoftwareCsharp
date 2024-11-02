@@ -1,0 +1,13 @@
+@model User
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label" for="user">SQL Username</label>
+        <input class="form-control" id="user" name="user" value="@Model.SQLUsername"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="pass">SQL Password</label>
+        <input type="password" class="form-control" id="pass" name="pass" value="@Model.SQLPassword"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

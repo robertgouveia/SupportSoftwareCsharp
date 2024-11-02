@@ -20,16 +20,37 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1 d-flex align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
                     @if (User.Identity is { IsAuthenticated: true })
                     {
-                    <li class="nav-item">
-                        <a asp-controller="Scripts" asp-action="Index" class="nav-link text-dark">Scripts</a>
-                    </li>
+                        <div class="dropdown">
+                            <button class="border-0 bg-transparent nav-item dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                Scripts
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Scripts" asp-action="Index">View Scripts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Scripts" asp-action="Create">Add Scripts</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="border-0 bg-transparent nav-item dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                Connections
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Connection" asp-action="Index">View Connections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Connection" asp-action="Create">Add Connection</a>
+                                </li>
+                            </ul>
+                        </div>
                     <li class="nav-item ms-auto pe-3">
-                        <p class="nav-link text-dark mb-0 text-center">@User.Identity.Name</p>
+                        <a asp-controller="Profile" asp-action="Index" class="nav-link text-dark mb-0 text-center">@User.Identity.Name</a>
                     </li>
                     <form method="post" asp-controller="Logout" asp-action="Index">
                         <button type="submit" class="btn btn-danger">Logout</button>
@@ -54,7 +75,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2024 - RobertGee - <a href="https://github.com/robertgouveia" target="_blank">Github</a>
+        &copy; 2024 - Robert - <a href="https://github.com/robertgouveia" target="_blank">Github</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
