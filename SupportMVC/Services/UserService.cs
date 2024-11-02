@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 using SupportBusiness.Authentication;
 using SupportMVC.Models;
 
@@ -17,5 +19,16 @@ public class UserService()
         user.PasswordSalt = passwordSalt;
 
         return user;
+    }
+
+    public static void Login(User user, out ClaimsIdentity claimsIdentity, out AuthenticationProperties authProperties)
+    {
+        var claims = new List<Claim>
+        {
+            new(ClaimTypes.Name, user.Username)
+        };
+
+        claimsIdentity = new ClaimsIdentity(claims, "CookieAuth");
+        authProperties = new AuthenticationProperties { IsPersistent = true };
     }
 }

@@ -19,26 +19,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav flex-grow-1 d-flex align-items-center">
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     @if (User.Identity is { IsAuthenticated: true })
                     {
-                        <li>
-                            <a asp-controller="Scripts" asp-action="Index" class="nav-link text-dark">Scripts</a>
-                        </li>
-                        <li class="nav-item ms-auto">
-                            <form method="post" asp-controller="Logout" asp-action="Index">
-                                <button type="submit" class="btn btn-danger">Logout</button>
-                            </form>
-                        </li>
+                    <li class="nav-item">
+                        <a asp-controller="Scripts" asp-action="Index" class="nav-link text-dark">Scripts</a>
+                    </li>
+                    <li class="nav-item ms-auto pe-3">
+                        <p class="nav-link text-dark mb-0 text-center">@User.Identity.Name</p>
+                    </li>
+                    <form method="post" asp-controller="Logout" asp-action="Index">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
                     }
                     else
                     {
-                        <li class="nav-item ms-auto">
-                            <a class="btn btn-success" asp-area="" asp-controller="SignUp" asp-action="Index">Get Started</a>
-                        </li>
+                    <li class="nav-item ms-auto">
+                        <a class="btn btn-success" asp-area="" asp-controller="SignUp" asp-action="Index">Get Started</a>
+                    </li>
                     }
                 </ul>
             </div>
