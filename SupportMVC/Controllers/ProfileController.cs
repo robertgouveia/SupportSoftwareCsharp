@@ -7,7 +7,7 @@ using SupportMVC.Models;
 namespace SupportMVC.Controllers;
 
 [Authorize]
-public class ProfileController(UserContextInMemory context) : Controller
+public class ProfileController(UserContext context) : Controller
 {
     public async Task<IActionResult> Index()
     {

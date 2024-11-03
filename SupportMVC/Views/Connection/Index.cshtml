@@ -1,4 +1,30 @@
-@{
-}
+@model List<Connection>
 
 <p>Connections</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">IP</th>
+        <th scope="col">Database</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var connection in Model)
+    {
+        <tr>
+            <td class="align-middle">@connection.Name</td>
+            <td class="align-middle">@connection.IP</td>
+            <td class="align-middle">@connection.Database</td>
+            <td class="d-flex gap-3">
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@connection.Id">Edit</a>
+                <form method="post" asp-action="Delete" asp-route-id="@connection.Id">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

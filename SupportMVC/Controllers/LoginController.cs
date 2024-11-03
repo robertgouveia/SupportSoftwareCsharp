@@ -7,7 +7,7 @@ using SupportMVC.Services;
 
 namespace SupportMVC.Controllers;
 
-public class LoginController(UserContextInMemory context) : Controller
+public class LoginController(UserContext context) : Controller
 {
     public IActionResult Index()
     {

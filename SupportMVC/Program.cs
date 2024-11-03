@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using SupportMVC.InMemory;
+using SupportMVC.Models;
+using SupportMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<UserContextInMemory>(options =>
-{
-    options.UseInMemoryDatabase("Users");
-});
+builder.Services.AddInMemoryContext<UserContext>("Users");
+builder.Services.AddInMemoryContext<ConnectionContext>("Connections");
+builder.Services.AddInMemoryContext<ScriptContext>("Scripts");
 
 builder.Services.AddAuthentication("CookieAuth")
     .AddCookie("CookieAuth", config =>

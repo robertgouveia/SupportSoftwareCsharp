@@ -1,0 +1,25 @@
+@model Connection
+
+<p>Edit Connection</p>
+
+<form method="post" asp-action="Edit" asp-route-id="@Model.Id">
+    <div class="mb-3">
+        <div class="form-floating">
+            <input name="name" id="name" class="form-control" aria-describedby="connection name" value="@Model.Name"/>
+            <label for="name">Connection Name</label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="form-floating">
+            <input name="ip" id="ip" class="form-control" aria-describedby="connection ip" value="@Model.IP"/>
+            <label for="ip">Connection IP</label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="form-floating">
+            <input name="database" id="database" class="form-control" aria-describedby="connection Database" value="@Model.Database"/>
+            <label for="database">Connection Database</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>

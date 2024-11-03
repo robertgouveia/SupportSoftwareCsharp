@@ -6,7 +6,7 @@ using SupportMVC.Services;
 
 namespace SupportMVC.Controllers;
 
-public class SignUpController(UserContextInMemory context) : Controller
+public class SignUpController(UserContext context) : Controller
 {
     public IActionResult Index()
     {

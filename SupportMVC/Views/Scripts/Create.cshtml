@@ -1,4 +1,15 @@
-@{
-}
-
 <p>Create Script</p>
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="mb-3">
+        <div class="form-floating">
+            <input name="name" id="name" class="form-control" aria-describedby="script name"/>
+            <label for="name">Script Name</label>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input type="file" name="content" id="file" class="form-control" accept=".sql" aria-describedby="file"/>
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
