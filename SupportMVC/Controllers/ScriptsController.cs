@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SupportMVC.Helpers;
 using SupportMVC.InMemory;
 using SupportMVC.Models;
 
@@ -33,7 +34,8 @@ public class ScriptsController(ScriptContext context) : Controller
         var script = new Script
         {
             Name = name,
-            Content = data
+            Content = data,
+            Variables = ScriptHelper.GetVariables(data)
         };
 
         await context.Scripts.AddAsync(script);
@@ -57,6 +59,7 @@ public class ScriptsController(ScriptContext context) : Controller
 
         script.Content = content;
         script.Name = name;
+        script.Variables = ScriptHelper.GetVariables(content);
 
         context.Scripts.Update(script);
         await context.SaveChangesAsync();

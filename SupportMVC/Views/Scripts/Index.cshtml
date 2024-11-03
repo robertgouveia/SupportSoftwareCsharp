@@ -15,6 +15,7 @@
     <tr>
         <td class="align-middle">@script.Name</td>
         <td class="d-flex gap-3">
+            <a class="btn btn-success" asp-action="View" asp-route-id="@script.Id">Execute</a>
             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@script.Id">Edit</a>
             <form method="post" asp-action="Delete" asp-route-id="@script.Id">
                 <button type="submit" class="btn btn-danger">Delete</button>
